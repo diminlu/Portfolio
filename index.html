@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: transparent; }
+  * { user-select: none; -webkit-user-select: none; }
 
   :root {
     --black: #111;
@@ -69,28 +71,16 @@
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 60px;
-    transition: background 0.4s, padding 0.4s;
-  }
-  nav.scrolled {
+    padding: 14px 60px;
     background: rgba(250,250,248,0.96);
     backdrop-filter: blur(8px);
-    padding: 14px 60px;
     border-bottom: 0.5px solid var(--gray-mid);
   }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 18px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border: 1px solid currentColor;
-    padding: 6px 12px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .nav-logo:hover { background: var(--black); color: var(--white); }
+  nav.scrolled {}
+  .nav-logo { display: none; }
 
   .nav-links {
-    display: flex; gap: 40px; list-style: none;
+    display: flex; gap: 40px; list-style: none; margin-left: auto;
   }
   .nav-links a {
     font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
@@ -333,6 +323,7 @@
     transition: background 0.3s;
     position: relative; overflow: hidden;
     cursor: pointer;
+    display: flex; flex-direction: column;
   }
   .project-card::before {
     content: '';
@@ -364,6 +355,7 @@
   }
   .project-tags {
     display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;
+    flex: 1; align-content: flex-start;
   }
   .tag {
     font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
@@ -566,7 +558,7 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <p class="hero-eyebrow"><span></span> data analyst <span></span></p>
-      <h1 class="hero-name">Your Name</h1>
+      <h1 class="hero-name">Dimin Lu</h1>
       <p class="hero-sub">Turning data into decisions, noise into signal.</p>
       <div class="hero-cta">
         <a class="btn btn-light" href="#" onclick="showPage('portfolio')">View Work</a>
@@ -667,13 +659,13 @@
   <div class="projects-grid" id="projectsGrid">
 
     <!-- Featured -->
-    <div class="project-card featured" data-type="tableau">
+    <div class="project-card featured" data-type="excel">
       <div>
-        <p class="project-type"><span class="project-type-dot"></span>Tableau · Featured</p>
-        <h2 class="project-title">Sales Performance Dashboard</h2>
-        <p class="project-desc">An interactive Tableau dashboard tracking revenue trends, regional breakdown, and product performance across 12 months. Reduced reporting time by 60% for the sales team.</p>
+        <p class="project-type"><span class="project-type-dot"></span>Excel · Featured</p>
+        <h2 class="project-title">Dynamic Supermarket Sales Dashboard</h2>
+        <p class="project-desc">An interactive Excel dashboard tracking revenue trends, category breakdown, and product performance across 24 months. Reduced reporting time by 60% for the sales team.</p>
         <div class="project-tags">
-          <span class="tag">Tableau</span>
+          <span class="tag">Excel</span>
           <span class="tag">KPI Tracking</span>
           <span class="tag">Data Viz</span>
           <span class="tag">LOD Expressions</span>
@@ -681,8 +673,8 @@
         <a class="project-link" href="#" target="_blank">View Project →</a>
       </div>
       <div class="project-visual">
-        <span class="project-visual-inner">T</span>
-        <div class="tool-badge">Tableau</div>
+        <img src="SupermarketDashboard.png" alt="Project Preview" style="width:100%; height:100%; object-fit:cover;">
+        <div class="tool-badge">Excel</div>
       </div>
     </div>
 
@@ -798,14 +790,14 @@
     <div class="about-left">
       <div>
         <div class="about-avatar">Y</div>
-        <h2 class="about-name">Your Name</h2>
+        <h2 class="about-name">Dimin Lu</h2>
         <p class="about-role">Data Analyst</p>
       </div>
       <ul class="about-contact-list">
-        <li><span class="about-contact-dot"></span><strong>Location</strong> &nbsp;—&nbsp; Your City, State</li>
-        <li><span class="about-contact-dot"></span><strong>Email</strong> &nbsp;—&nbsp; you@email.com</li>
-        <li><span class="about-contact-dot"></span><strong>LinkedIn</strong> &nbsp;—&nbsp; /in/yourname</li>
-        <li><span class="about-contact-dot"></span><strong>GitHub</strong> &nbsp;—&nbsp; github.com/you</li>
+        <li><span class="about-contact-dot"></span><strong>Location</strong> &nbsp;—&nbsp; Sacramento, CA</li>
+        <li><span class="about-contact-dot"></span><strong>Email</strong> &nbsp;—&nbsp; diminlu@outlook.com</li>
+        <li><span class="about-contact-dot"></span><strong>LinkedIn</strong> &nbsp;—&nbsp; /in/diminlu</li>
+        <li><span class="about-contact-dot"></span><strong>GitHub</strong> &nbsp;—&nbsp; github.com/diminlu</li>
       </ul>
       <a class="btn btn-light" href="#" style="margin-top: 40px; display: inline-block;">Download CV →</a>
     </div>
@@ -856,19 +848,19 @@
         <p class="about-section-label">Experience</p>
         <div class="timeline">
           <div class="timeline-item">
-            <p class="timeline-year">2023 — Present</p>
-            <p class="timeline-title">Data Analyst</p>
-            <p class="timeline-org">Company Name · Full-time</p>
+            <p class="timeline-year">2025 — Present</p>
+            <p class="timeline-title">Analyst II</p>
+            <p class="timeline-org">Franchise Tax Board · Full-time</p>
           </div>
           <div class="timeline-item">
-            <p class="timeline-year">2021 — 2023</p>
-            <p class="timeline-title">Junior Analyst</p>
-            <p class="timeline-org">Company Name · Full-time</p>
+            <p class="timeline-year">2023 — 2025</p>
+            <p class="timeline-title">Analyst I</p>
+            <p class="timeline-org">Franchise Tax Board · Full-time</p>
           </div>
           <div class="timeline-item">
-            <p class="timeline-year">2019 — 2021</p>
-            <p class="timeline-title">B.S. in Business Analytics</p>
-            <p class="timeline-org">University Name</p>
+            <p class="timeline-year">2018 — 2022</p>
+            <p class="timeline-title">B.S. in International Business</p>
+            <p class="timeline-org">California State University, Sacramento</p>
           </div>
         </div>
       </div>
